@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex & Flow | Diet & Nutrition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fuel your fitness with proper nutrition. Discover balanced diet plans and protein-rich foods at Flex & Flow.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #111827 !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: #84CC16;
+        }
+
+        .nav-link {
+            color: #6B7280 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1.25rem !important;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #84CC16 !important;
+            background-color: rgba(132, 204, 22, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .section-subtitle {
+            color: #6B7280;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Hero/Intro */
+        .hero-intro {
+            padding: 100px 0 80px;
+            background: linear-gradient(180deg, #F7FEE7 0%, #ffffff 100%);
+        }
+
+        .hero-intro h1 {
+            font-weight: 700;
+            font-size: 2.75rem;
+            color: #111827;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-intro h1 span {
+            color: #84CC16;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Food Cards */
+        .food-card {
+            background: #ffffff;
+            border: 1px solid #F3F4F6;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.35s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(132, 204, 22, 0.12);
+            border-color: rgba(132, 204, 22, 0.3);
+        }
+
+        .food-card .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        .food-card .icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .food-card h5 {
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .food-card p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Water Section */
+        .water-section {
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+            color: #ffffff;
+            padding: 60px 0;
+        }
+
+        .water-section h3 {
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .water-section p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .water-section .icon-large {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Table Styling */
+        .diet-table-section {
+            background-color: #FAFAFA;
+        }
+
+        .diet-table {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .diet-table table {
+            margin: 0;
+        }
+
+        .diet-table thead {
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+        }
+
+        .diet-table thead th {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 1rem 1.25rem;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .diet-table tbody td {
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            color: #4B5563;
+            border-color: #F3F4F6;
+            vertical-align: middle;
+            transition: all 0.2s ease;
+        }
+
+        .diet-table tbody tr:hover {
+            background-color: #F7FEE7;
+        }
+
+        .diet-table tbody tr:hover td {
+            color: #111827;
+        }
+
+        .diet-table tbody td:first-child {
+            font-weight: 600;
+            color: #84CC16;
+        }
+
+        /* Buttons */
+        .btn-diet {
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(132, 204, 22, 0.3);
+        }
+
+        .btn-diet:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(132, 204, 22, 0.4);
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+            color: #ffffff;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 0 5px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(132, 204, 22, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(132, 204, 22, 0.5);
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .hero-intro h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            Flex <span>&</span> Flow
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="gym.html">Gym</a></li>
+                <li class="nav-item"><a class="nav-link" href="yoga.html">Yoga</a></li>
+                <li class="nav-item"><a class="nav-link active" href="diet.html">Diet</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero/Intro Section -->
+<section class="hero-intro text-center">
+    <div class="container">
+        <h1>Balanced <span>Diet</span> & Nutrition</h1>
+        <p class="section-subtitle">
+            A proper diet fuels your workouts, supports recovery,
+            and keeps your body strong and energetic every day.
+        </p>
+    </div>
+</section>
+
+<!-- Protein Sources -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title text-center">Protein Rich Foods</h2>
+        <p class="section-subtitle text-center">Essential building blocks for muscle growth and recovery</p>
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="food-card fade-in">
+                    <div class="icon">
+                        <i class="bi bi-egg-fill"></i>
+                    </div>
+                    <h5>Eggs</h5>
+                    <p>High-quality complete protein source that supports muscle growth, repair, and overall health.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="food-card fade-in">
+                    <div class="icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+                    <h5>Chicken Breast</h5>
+                    <p>Lean protein option ideal for muscle building, low in fat and high in essential amino acids.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="food-card fade-in">
+                    <div class="icon">
+                        <i class="bi bi-grid-fill"></i>
+                    </div>
+                    <h5>Paneer & Tofu</h5>
+                    <p>Great vegetarian sources of protein, calcium, and healthy fats for plant-based diets.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Water Intake -->
+<section class="water-section text-center">
+    <div class="container">
+        <i class="bi bi-droplet-fill icon-large"></i>
+        <h3>Daily Water Intake</h3>
+        <p>
+            Drinking 3–4 liters of water daily improves digestion,
+            boosts metabolism, flushes toxins, and supports muscle recovery.
+        </p>
+    </div>
+</section>
+
+<!-- 7 Day Sample Diet Table -->
+<section class="section diet-table-section">
+    <div class="container">
+        <h2 class="section-title text-center">7-Day Sample Diet Plan</h2>
+        <p class="section-subtitle text-center">A balanced weekly meal guide to fuel your fitness journey</p>
+
+        <div class="diet-table">
+            <div class="table-responsive">
+                <table class="table text-center mb-0">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Breakfast</th>
+                            <th>Lunch</th>
+                            <th>Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Oats & Fruits</td>
+                            <td>Rice, Dal, Veg</td>
+                            <td>Chapati & Paneer</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Boiled Eggs</td>
+                            <td>Chicken & Rice</td>
+                            <td>Salad & Soup</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Smoothie</td>
+                            <td>Chapati & Dal</td>
+                            <td>Grilled Veggies</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Poha</td>
+                            <td>Rice & Rajma</td>
+                            <td>Paneer & Salad</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Upma</td>
+                            <td>Chicken & Roti</td>
+                            <td>Soup & Veg</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Omelette</td>
+                            <td>Rice & Fish</td>
+                            <td>Chapati & Dal</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>Pancakes</td>
+                            <td>Veg Pulao</td>
+                            <td>Light Dinner</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-brand">Flex & Flow</div>
+        <p class="mb-3">Eat Clean, Stay Strong</p>
+        <div class="social-icons mb-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+        <p style="opacity: 0.7;">© 2026 Flex & Flow | Fuel Your Fitness</p>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

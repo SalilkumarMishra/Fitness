@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex & Flow | Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get in touch with Flex & Flow. Contact us for fitness inquiries, gym memberships, or yoga sessions.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #111827 !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: #2563EB;
+        }
+
+        .nav-link {
+            color: #6B7280 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1.25rem !important;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #2563EB !important;
+            background-color: rgba(37, 99, 235, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .section-subtitle {
+            color: #6B7280;
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background-color: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            padding: 3rem;
+            transition: all 0.35s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Form Styling */
+        .form-label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            background-color: #F9FAFB;
+            transition: all 0.25s ease;
+        }
+
+        .form-control:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            background-color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #9CA3AF;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        /* Button */
+        .btn-contact {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 12px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            color: #ffffff;
+        }
+
+        /* Contact Info Section */
+        .info-section {
+            background-color: #ffffff;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background-color: #F9FAFB;
+        }
+
+        .info-card .icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .info-card .icon i {
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+
+        .info-card h6 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        footer span {
+            color: #60A5FA;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand span {
+            color: #2563EB;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 0 5px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #2563EB;
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .contact-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Flex <span>&</span> Flow</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="gym.html">Gym</a></li>
+                <li class="nav-item"><a class="nav-link" href="yoga.html">Yoga</a></li>
+                <li class="nav-item"><a class="nav-link" href="diet.html">Diet</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title text-center">Get In Touch</h2>
+        <p class="section-subtitle text-center">Have questions? We'd love to hear from you. Send us a message!</p>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+                <div class="contact-card">
+
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" placeholder="How can we help?">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="5" placeholder="Write your message here..."></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-contact">
+                                <i class="bi bi-send-fill me-2"></i>Send Message
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="section info-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h6>Location</h6>
+                    <p>Your City, Country</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <h6>Phone</h6>
+                    <p>+91 XXXXX XXXXX</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <h6>Email</h6>
+                    <p>info@flexandflow.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-brand">Flex <span>&</span> Flow</div>
+        <p class="mb-3">Stay Connected</p>
+        <div class="social-icons mb-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+        <p style="opacity: 0.6;">© 2026 <span>Flex & Flow</span> | We're Here for You</p>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

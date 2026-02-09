@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex & Flow | Yoga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover peace and flexibility through yoga practice at Flex & Flow. Learn essential poses for mind-body balance.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAF9;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #1F2937 !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: #10B981;
+        }
+
+        .nav-link {
+            color: #6B7280 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1.25rem !important;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #10B981 !important;
+            background-color: rgba(16, 185, 129, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+
+        .section-subtitle {
+            color: #6B7280;
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* About Section - Info Cards */
+        .info-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .info-card h5 {
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-card ul li {
+            padding: 0.6rem 0;
+            color: #4B5563;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .info-card ul li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .text-accent {
+            color: #10B981;
+        }
+
+        .text-warning-soft {
+            color: #F59E0B;
+        }
+
+        /* Yoga Pose Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 1.75rem 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+
+        .card-text {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Buttons */
+        .btn-yoga {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-yoga:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #ffffff;
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 0 5px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+            color: #ffffff;
+        }
+
+        /* Soft Divider */
+        .section-soft {
+            background-color: #F3F4F6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            Flex <span>&</span> Flow
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="gym.html">Gym</a></li>
+                <li class="nav-item"><a class="nav-link active" href="yoga.html">Yoga</a></li>
+                <li class="nav-item"><a class="nav-link" href="diet.html">Diet</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- About Yoga -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title text-center">About Yoga Practice</h2>
+        <p class="section-subtitle text-center">Find balance, flexibility, and inner peace through mindful movement</p>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="info-card fade-in">
+                    <h5 class="text-accent"><i class="bi bi-check-circle-fill"></i> Benefits</h5>
+                    <ul>
+                        <li><i class="bi bi-flower1 text-accent"></i> Improves flexibility and posture</li>
+                        <li><i class="bi bi-flower1 text-accent"></i> Reduces stress and anxiety</li>
+                        <li><i class="bi bi-flower1 text-accent"></i> Enhances breathing and focus</li>
+                        <li><i class="bi bi-flower1 text-accent"></i> Promotes mental peace and clarity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-card fade-in">
+                    <h5 class="text-warning-soft"><i class="bi bi-info-circle-fill"></i> Things to Know</h5>
+                    <ul>
+                        <li><i class="bi bi-dot text-warning-soft"></i> Requires patience and consistency</li>
+                        <li><i class="bi bi-dot text-warning-soft"></i> Visible results take time</li>
+                        <li><i class="bi bi-dot text-warning-soft"></i> Some poses challenging for beginners</li>
+                        <li><i class="bi bi-dot text-warning-soft"></i> Best learned with proper guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Yoga Poses -->
+<section class="section section-soft">
+    <div class="container">
+        <h2 class="section-title text-center">Essential Yoga Poses</h2>
+        <p class="section-subtitle text-center">Begin your practice with these foundational asanas</p>
+        <div class="row g-4">
+
+            <!-- 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/surya-namaskar.webp" class="card-img-top" alt="Surya Namaskar">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Surya Namaskar</h5>
+                        <p class="card-text">A dynamic full-body sequence that boosts circulation, improves flexibility, and energizes the entire body.</p>
+                        <a href="https://www.youtube.com/results?search_query=surya+namaskar+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/tadasana.avif" class="card-img-top" alt="Tadasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tadasana (Mountain Pose)</h5>
+                        <p class="card-text">Improves posture, balance, and body alignment while strengthening the legs and core muscles.</p>
+                        <a href="https://www.youtube.com/results?search_query=tadasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/bhujangasana.jpg" class="card-img-top" alt="Bhujangasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Bhujangasana (Cobra Pose)</h5>
+                        <p class="card-text">Strengthens the spine, opens the chest, and improves flexibility in the lower back.</p>
+                        <a href="https://www.youtube.com/results?search_query=bhujangasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/vrikshasana.jpg" class="card-img-top" alt="Vrikshasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Vrikshasana (Tree Pose)</h5>
+                        <p class="card-text">Enhances balance, concentration, and strengthens the legs while calming the mind.</p>
+                        <a href="https://www.youtube.com/results?search_query=vrikshasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/trikonasana.webp" class="card-img-top" alt="Trikonasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Trikonasana (Triangle Pose)</h5>
+                        <p class="card-text">Stretches the legs and spine while improving flexibility and overall body balance.</p>
+                        <a href="https://www.youtube.com/results?search_query=trikonasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/padmasana.jpg" class="card-img-top" alt="Padmasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Padmasana (Lotus Pose)</h5>
+                        <p class="card-text">A meditation pose that promotes relaxation, mental clarity, and improved breathing control.</p>
+                        <a href="https://www.youtube.com/results?search_query=padmasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/sukhasana.jpg" class="card-img-top" alt="Sukhasana">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sukhasana (Easy Pose)</h5>
+                        <p class="card-text">A simple seated pose that improves posture and promotes calm breathing and relaxation.</p>
+                        <a href="https://www.youtube.com/results?search_query=sukhasana+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/Child's Pose.jpg" class="card-img-top" alt="Child Pose">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Child's Pose</h5>
+                        <p class="card-text">A resting pose that gently stretches the back and relieves stress and fatigue.</p>
+                        <a href="https://www.youtube.com/results?search_query=child+pose+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/67691f03eb5bWarrior-2.jpg" class="card-img-top" alt="Warrior Pose">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Virabhadrasana (Warrior I)</h5>
+                        <p class="card-text">Builds strength in the legs, opens the hips and chest, and improves focus and balance.</p>
+                        <a href="https://www.youtube.com/results?search_query=warrior+1+pose+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="overflow-hidden">
+                        <img src="/yoga/downward dog.jpg" class="card-img-top" alt="Downward Dog">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Adho Mukha Svanasana (Downward Dog)</h5>
+                        <p class="card-text">Stretches hamstrings, calves, and spine while strengthening arms and shoulders.</p>
+                        <a href="https://www.youtube.com/results?search_query=downward+dog+yoga" target="_blank" class="btn btn-yoga">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-brand">Flex & Flow</div>
+        <p class="mb-3">Balance Your Mind & Body</p>
+        <div class="social-icons mb-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+        <p style="opacity: 0.7;">© 2026 Flex & Flow | Find Your Inner Peace</p>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top">
+    <i class="bi bi-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
